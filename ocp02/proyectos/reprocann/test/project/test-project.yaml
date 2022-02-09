@@ -4,6 +4,5 @@ items:
   kind: Namespace
   metadata:
     name: test-reprocann
-  type: kubernetes.io/ssh-auth
 kind: List
 metadata: {}
