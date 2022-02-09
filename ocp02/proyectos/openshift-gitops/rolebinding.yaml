@@ -53,8 +53,8 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: sealed-secret-create
-  ---
-  #SE USA PARA CREAR SEALED SECRET DESDE ARGO
+---
+#SE USA PARA CREAR LIMIT RANGE DESDE ARGO
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -66,4 +66,4 @@ subjects:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: admin
+  name: cluster-admin

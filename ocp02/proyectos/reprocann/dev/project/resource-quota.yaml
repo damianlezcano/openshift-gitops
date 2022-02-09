@@ -1,0 +1,13 @@
+kind: ResourceQuota
+apiVersion: v1
+metadata:
+  name: small-project-limits
+spec:
+  hard:    
+    limits.cpu: '1'
+    #limits.ephemeral-storage: 4Gi
+    limits.memory: 2Gi
+    #pods: '4'
+    requests.cpu: 100m
+    #requests.ephemeral-storage: 2Gi
+    requests.memory: 256Mi
