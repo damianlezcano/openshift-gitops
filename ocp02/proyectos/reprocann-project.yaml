@@ -24,6 +24,8 @@ items:
       kind: Pipeline
     - group: '*'
       kind: ServiceAccount
+    - group: '*'
+      kind: LimitRange
     
     destinations:
     - namespace: openshift-gitops
@@ -95,6 +97,8 @@ items:
       kind: Pipeline
     - group: '*'
       kind: ServiceAccount
+    - group: '*'
+      kind: LimitRange
     
     destinations:
     - namespace: dev-reprocann
@@ -126,6 +130,8 @@ items:
       kind: Pipeline
     - group: '*'
       kind: ServiceAccount
+    - group: '*'
+      kind: LimitRange
     
     destinations:
     - namespace: test-reprocann

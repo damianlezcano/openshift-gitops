@@ -1,0 +1,24 @@
+kind: LimitRange
+apiVersion: v1
+metadata:
+  name: small-limits-por-pod
+spec:
+  limits:
+    - type: "Container"
+      max:
+        cpu: '1'
+        memory: 2Gi
+      maxLimitRequestRatio:
+        cpu: '10'
+      default:
+        cpu: 200m
+        memory: 512Mi
+      defaultRequest:
+        cpu: 100m
+        memory: 100Mi
+    - type: "Pod"
+      max:
+        cpu: '1'
+        memory: 2Gi
+      maxLimitRequestRatio:
+        cpu: '10'
