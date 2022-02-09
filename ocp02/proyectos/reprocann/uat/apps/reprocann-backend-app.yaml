@@ -17,7 +17,7 @@ items:
     project: uat-reprocann
     source:
       path: overlays/uat
-      repoURL: ssh://git@github.com:damianlezcano/openshift-gitops.git
+      repoURL: ssh://git@github.com:damianlezcano/reprocann-gitops.git
       targetRevision: main
     syncPolicy:
       automated:
