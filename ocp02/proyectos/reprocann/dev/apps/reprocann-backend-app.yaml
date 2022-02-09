@@ -9,15 +9,6 @@ items:
     destination:
       namespace: dev-reprocann
       server: https://kubernetes.default.svc
-    ignoreDifferences:
-    - group: apps
-      jsonPointers:
-      - /spec/template/spec/containers/0/image
-      kind: Deployment
-    - group: '*'
-      jsonPointers:
-      - /spec/tls
-      kind: Route
     project: dev-reprocann
     source:
       path: overlays/dev
