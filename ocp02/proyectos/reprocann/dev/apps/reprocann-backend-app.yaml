@@ -11,7 +11,7 @@ items:
       server: https://kubernetes.default.svc
     project: dev-reprocann
     source:
-      path: overlays/dev
+      path: overlay/dev
       repoURL: git@github.com:damianlezcano/reprocann-gitops.git
       targetRevision: main
     syncPolicy:
