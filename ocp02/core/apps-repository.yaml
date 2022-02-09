@@ -7,6 +7,6 @@ metadata:
     argocd.argoproj.io/secret-type: repository
 stringData:
   name: GitOps
-  url: git@github.com/openshift-gitops.git
+  url: git@github.com:damianlezcano/openshift-gitops.git
   type: git
   insecure: 'true'
