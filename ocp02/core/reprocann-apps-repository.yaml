@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: repository-gitops
+  namespace: openshift-gitops
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  name: GitOps
+  url: git@github.com:damianlezcano/reprocann-gitops.git
+  type: git
+  insecure: 'true'
