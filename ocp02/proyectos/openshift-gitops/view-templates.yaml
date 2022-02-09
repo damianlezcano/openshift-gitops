@@ -1,0 +1,43 @@
+# CREAMOS UN ROL CON PERMISOS DE VIEW SOBRE LOS TEMPLATES DE OPENSFHIFT
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: view-templates
+  namespace: openshift
+rules:
+  - apiGroups:
+      - template.openshift.io
+    resources:
+      - templates
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - template.openshift.io
+    resources:
+      - processedtemplates
+    verbs:
+      - create
+---
+# CREAMOS UNA SERVICE ACCOUNT EN OPENSHIFT CON ESOS PERMISOS PARA INSTANCIAR LOS PIPELINES DESDE SH
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: view-templates
+  namespace: openshift
+---
+# LE DAMOS EL ROL A ESA SERVICE ACCOUNT
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: view-templates-openshift
+  namespace: openshift
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: view-templates
+subjects:
+  - kind: ServiceAccount
+    name: view-templates
+    namespace: openshift

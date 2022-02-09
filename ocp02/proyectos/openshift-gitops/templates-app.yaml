@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: templates
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: 'openshift-gitops'
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: ocp-bajos/templates
+    repoURL: 'ssh://git@10.10.103.100/devops/gitops.git'
+    targetRevision: master
+    directory:
+          recurse: true
+  project: openshift-gitops
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true

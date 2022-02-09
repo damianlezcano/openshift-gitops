@@ -1,0 +1,45 @@
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: edit-cicd-resources
+rules:
+  - verbs:
+      - get
+      - list
+      - watch
+      - patch
+      - create
+      - update
+    apiGroups:
+      - tekton.dev
+    resources:
+      - clustertasks
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: sealed-secret-create
+rules:
+  - verbs:
+      - get
+      - create
+      - patch
+      - delete
+      - update
+    apiGroups:
+      - 'bitnami.com'
+    resources:
+      - sealedsecrets
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: pipeline-puller
+rules:
+  - verbs:
+      - get
+    apiGroups:
+      - image.openshift.io
+    resources:
+      - imagestreams
+      - imagestreams/layers
