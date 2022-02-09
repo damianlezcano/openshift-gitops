@@ -1,0 +1,86 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: openshift-gitops
+  namespace: openshift-gitops
+  # Finalizer that ensures that project is not deleted until it is not referenced by any application
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Openshift GitOps 
+  # Allow manifests to deploy from any Git repos
+  sourceRepos:
+  - '*'
+
+  # Only permit applications to deploy to the guestbook namespace in the same cluster
+  destinations:
+    - namespace: '*'
+      server: https://kubernetes.default.svc
+  
+  # Deny all cluster-scoped resources from being created, except for Namespace
+  clusterResourceWhitelist:
+  - group: ''
+    kind: Namespace
+  - group: '*'
+    kind: ClusterRoleBinding
+  - group: '*'
+    kind: ClusterRole
+  - group: '*'
+    kind: ClusterTask
+  - group: '*'
+    kind: List
+
+  # Deny all namespaced-scoped resources from being created, except for Application
+  namespaceResourceWhitelist:
+  - group: 'argoproj.io'
+    kind: Application
+  - group: 'argoproj.io'
+    kind: AppProject
+  - group: 'argoproj.io'
+    kind: ApplicationSet
+  - group: '*'
+    kind: Secret
+  - group: '*'
+    kind: SealedSecret
+  - group: '*'
+    kind: PersistentVolumeClaim
+  - group: '*'
+    kind: Pipeline
+  - group: '*'
+    kind: ServiceAccount
+  - group: '*'
+    kind: EventListener
+  - group: '*'
+    kind: TriggerBinding
+  - group: '*'
+    kind: TriggerTemplate
+  - group: '*'
+    kind: Trigger
+  - group: '*'
+    kind: Template
+  - group: '*'
+    kind: Route
+  - group: '*'
+    kind: Role
+  - group: '*'
+    kind: RoleBinding
+  - group: '*'
+    kind: List
+  
+  
+  # Deny all namespaced-scoped resources from being created, except for Deployment and StatefulSet
+  # namespaceResourceWhitelist:
+  # - group: 'apps'
+  #   kind: Deployment
+  # - group: 'apps'
+  #   kind: DeploymentConfig
+  # - group: 'apps'
+  #   kind: StatefulSet
+  roles:
+  # A role which provides read-only access to all applications in the project
+  # - name: read-only
+  #   description: Read-only privileges to my-project
+  #   policies:
+  #   - p, proj:my-project:read-only, applications, get, my-project/*, allow
+  #   groups:
+  #   - my-oidc-group

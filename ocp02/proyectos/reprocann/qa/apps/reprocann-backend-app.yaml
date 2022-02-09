@@ -1,0 +1,29 @@
+apiVersion: v1
+items:
+- apiVersion: argoproj.io/v1alpha1
+  kind: Application
+  metadata:
+    name: qa-reprocann-backend-app
+    namespace: openshift-gitops
+  spec:
+    destination:
+      namespace: qa-reprocann
+      server: https://kubernetes.default.svc
+    ignoreDifferences:
+    - group: '*'
+      jsonPointers:
+      - /spec/tls
+      kind: Route
+    project: qa-reprocann
+    source:
+      path: overlays/qa
+      repoURL: ssh://git@github.com/reprocann-gitops.git
+      targetRevision: main
+    syncPolicy:
+      automated:
+        selfHeal: true
+      syncOptions:
+      - Validate=false
+      - ApplyOutOfSyncOnly=true
+kind: List
+metadata: {}
