@@ -71,9 +71,9 @@ items:
         source:
           directory:
             recurse: true
-          path: ocp-bajos/proyectos/{{project}}/{{env}}
-          repoURL: ssh://git@10.10.103.100/devops/gitops.git
-          targetRevision: master
+          path: ocp02/proyectos/{{project}}/{{env}}
+          repoURL: ssh://git@github.com:damianlezcano/openshift-gitops.git
+          targetRevision: main
         syncPolicy:
           automated:
             selfHeal: true
