@@ -11,7 +11,7 @@ spec:
     path: ocp02/proyectos
     repoURL: 'git@github.com/openshift-gitops.git'
     targetRevision: main
-  project: user-gitops
+  project: openshift-gitops
   syncPolicy:
     automated:
       selfHeal: true
