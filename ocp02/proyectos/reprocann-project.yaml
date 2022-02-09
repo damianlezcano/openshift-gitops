@@ -30,9 +30,7 @@ items:
       server: https://kubernetes.default.svc
     - namespace: dev-reprocann
       server: https://kubernetes.default.svc
-    - namespace: qa-reprocann
-      server: https://kubernetes.default.svc
-    - namespace: uat-reprocann
+    - namespace: test-reprocann
       server: https://kubernetes.default.svc
     namespaceResourceBlacklist:
     - group: ""
@@ -53,9 +51,7 @@ items:
         elements:
         - env: dev
           project: reprocann
-        - env: qa
-          project: reprocann
-        - env: uat
+        - env: test
           project: reprocann
     template:
       metadata:
@@ -117,7 +113,7 @@ items:
   metadata:
     finalizers:
     - resources-finalizer.argocd.argoproj.io
-    name: qa-reprocann
+    name: test-reprocann
   spec:
     clusterResourceWhitelist:
     - group: '*'
@@ -132,38 +128,7 @@ items:
       kind: ServiceAccount
     
     destinations:
-    - namespace: qa-reprocann
-      server: https://kubernetes.default.svc
-    namespaceResourceBlacklist:
-    - group: ""
-      kind: ResourceQuota
-    - group: ""
-      kind: LimitRange
-    - group: ""
-      kind: NetworkPolicy
-    sourceRepos:
-    - '*'
-- apiVersion: argoproj.io/v1alpha1
-  kind: AppProject
-  metadata:
-    finalizers:
-    - resources-finalizer.argocd.argoproj.io
-    name: uat-reprocann
-  spec:
-    clusterResourceWhitelist:
-    - group: '*'
-      kind: Namespace
-    - group: '*'
-      kind: Secret
-    - group: '*'
-      kind: PersistentVolumeClaim
-    - group: '*'
-      kind: Pipeline
-    - group: '*'
-      kind: ServiceAccount
-    
-    destinations:
-    - namespace: uat-reprocann
+    - namespace: test-reprocann
       server: https://kubernetes.default.svc
     namespaceResourceBlacklist:
     - group: ""
