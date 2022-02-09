@@ -17,7 +17,7 @@ items:
     project: qa-reprocann
     source:
       path: overlays/qa
-      repoURL: ssh://git@github.com/reprocann-gitops.git
+      repoURL: ssh://git@github.com:damianlezcano/openshift-gitops.git
       targetRevision: main
     syncPolicy:
       automated:
