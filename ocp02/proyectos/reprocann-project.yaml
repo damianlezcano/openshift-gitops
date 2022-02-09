@@ -26,6 +26,8 @@ items:
       kind: ServiceAccount
     - group: '*'
       kind: LimitRange
+    - group: "*"
+      kind: ResourceQuota
     
     destinations:
     - namespace: openshift-gitops
@@ -35,8 +37,6 @@ items:
     - namespace: test-reprocann
       server: https://kubernetes.default.svc
     namespaceResourceBlacklist:
-    - group: ""
-      kind: ResourceQuota
     - group: ""
       kind: NetworkPolicy
     sourceRepos:
@@ -97,13 +97,13 @@ items:
       kind: ServiceAccount
     - group: '*'
       kind: LimitRange
+    - group: "*"
+      kind: ResourceQuota
     
     destinations:
     - namespace: dev-reprocann
       server: https://kubernetes.default.svc
     namespaceResourceBlacklist:
-    - group: ""
-      kind: ResourceQuota
     - group: ""
       kind: NetworkPolicy
     sourceRepos:
@@ -128,13 +128,13 @@ items:
       kind: ServiceAccount
     - group: '*'
       kind: LimitRange
+    - group: "*"
+      kind: ResourceQuota
     
     destinations:
     - namespace: test-reprocann
       server: https://kubernetes.default.svc
     namespaceResourceBlacklist:
-    - group: ""
-      kind: ResourceQuota
     - group: ""
       kind: NetworkPolicy
     sourceRepos:
