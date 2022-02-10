@@ -4,7 +4,7 @@ items:
   kind: RoleBinding
   metadata:
     name: ocp-Dev02
-    namespace: dev-reprocann
+    namespace: dev-personal-service
   roleRef:
     apiGroup: rbac.authorization.k8s.io
     kind: ClusterRole

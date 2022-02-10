@@ -13,9 +13,9 @@ oc create -f ocp02/proyectos/openshift-gitops/rolebinding.yaml
 oc create -f ocp02/core/apps-repository.yaml
 oc create -f ocp02/core/github-ssh-repo-creds.yaml
 
-# Registramos repositorio 'reprocann-dev'
+# Registramos repositorio 'personal-service-dev'
 
-oc create -f ocp02/repositories/reprocann-apps-repository.yaml
+oc create -f ocp02/repositories/personal-service-apps-repository.yaml
 
 # Registramos proyecto y aplicacion en argocd
 

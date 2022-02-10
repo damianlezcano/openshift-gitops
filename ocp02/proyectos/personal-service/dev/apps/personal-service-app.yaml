@@ -3,13 +3,13 @@ items:
 - apiVersion: argoproj.io/v1alpha1
   kind: Application
   metadata:
-    name: test-reprocann-backend-app
+    name: dev-personal-service-app
     namespace: openshift-gitops
   spec:
     destination:
-      namespace: test-reprocann
+      namespace: dev-personal-service
       server: https://kubernetes.default.svc
-    project: test-reprocann
+    project: dev-personal-service
     source:
       path: overlay/dev
       repoURL: git@github.com:damianlezcano/reprocann-gitops.git

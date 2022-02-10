@@ -5,7 +5,7 @@ items:
   metadata:
     finalizers:
     - resources-finalizer.argocd.argoproj.io
-    name: reprocann
+    name: personal-service
   spec:
     clusterResourceWhitelist:
     - group: '*'
@@ -32,9 +32,9 @@ items:
     destinations:
     - namespace: openshift-gitops
       server: https://kubernetes.default.svc
-    - namespace: dev-reprocann
+    - namespace: dev-personal-service
       server: https://kubernetes.default.svc
-    - namespace: test-reprocann
+    - namespace: test-personal-service
       server: https://kubernetes.default.svc
     namespaceResourceBlacklist:
     - group: ""
@@ -44,15 +44,15 @@ items:
 - apiVersion: argoproj.io/v1alpha1
   kind: ApplicationSet
   metadata:
-    name: reprocann-set
+    name: personal-service-set
   spec:
     generators:
     - list:
         elements:
         - env: dev
-          project: reprocann
+          project: personal-service
         - env: test
-          project: reprocann
+          project: personal-service
     template:
       metadata:
         finalizers:
@@ -82,7 +82,7 @@ items:
   metadata:
     finalizers:
     - resources-finalizer.argocd.argoproj.io
-    name: dev-reprocann
+    name: dev-personal-service
   spec:
     clusterResourceWhitelist:
     - group: '*'
@@ -101,7 +101,7 @@ items:
       kind: ResourceQuota
     
     destinations:
-    - namespace: dev-reprocann
+    - namespace: dev-personal-service
       server: https://kubernetes.default.svc
     namespaceResourceBlacklist:
     - group: ""
@@ -113,7 +113,7 @@ items:
   metadata:
     finalizers:
     - resources-finalizer.argocd.argoproj.io
-    name: test-reprocann
+    name: test-personal-service
   spec:
     clusterResourceWhitelist:
     - group: '*'
@@ -132,7 +132,7 @@ items:
       kind: ResourceQuota
     
     destinations:
-    - namespace: test-reprocann
+    - namespace: test-personal-service
       server: https://kubernetes.default.svc
     namespaceResourceBlacklist:
     - group: ""

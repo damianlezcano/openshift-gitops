@@ -3,6 +3,6 @@ items:
 - apiVersion: v1
   kind: Namespace
   metadata:
-    name: dev-reprocann
+    name: test-personal-service
 kind: List
 metadata: {}
