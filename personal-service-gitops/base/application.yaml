@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: personal-service-app
+
+management:
+  info.java.enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint.health:
+    show-details: always
+    group:
+      readiness:
+        include: db
+    probes:
+      enabled: true

@@ -22,6 +22,9 @@ oc create -f ocp02/core/github-ssh-repo-creds.yaml
 ```sh
 oc new-build openshift/python:3.8-ubi8~https://github.com/elsony/devfile-sample-python-basic.git -n openshift
 ```
+## Crear repo de manifiesto para la aplicacion
+
+Crear un repositorio en github y alojar el contenido de la carpeta `personal-service-gitops`
 
 ## Registramos repositorio 'personal-service-dev'
 

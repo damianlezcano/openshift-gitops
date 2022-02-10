@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: personal-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: personal-service-app
+  template:
+    metadata:
+      labels:
+        app: personal-service-app
+    spec:
+      containers:
+        - name: personal-service-app
+          image: personal-service-app-image
+          ports:
+            - containerPort: 8080
