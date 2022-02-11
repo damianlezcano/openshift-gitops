@@ -53,29 +53,29 @@ oc create -f ocp02/proyectos/openshift-gitops/rolebinding.yaml
     La información esta separada por `cluster` / `proyecto` / `aplicación`
 
     ```
-.
-├── ocp02
-│  ├── proyectos
-│  │  ├── openshift-gitops
-│  │  │  └── rolebinding.yaml
-│  │  ├── project1
-│  │  │  ├── dev
-│  │  │  │  ├── apps
-│  │  │  │  │  └── example-app.yaml
-│  │  │  │  └── project
-│  │  │  │      ├── limit-range.yaml
-│  │  │  │      ├── namespace.yaml
-│  │  │  │      ├── resource-quota.yaml
-│  │  │  │      └── role-binding.yaml
-│  │  │  └── test
-│  │  │      ├── apps
-│  │  │      │  └── example-app.yaml
-│  │  │      └── project
-│  │  │          └── namespace.yaml
-│  │  └── project1-project.yaml
-│  └── repositories
-│      └── example-apps-repository.yaml
-└── ocp03
+    .
+    ├── ocp02
+    │  ├── proyectos
+    │  │  ├── openshift-gitops
+    │  │  │  └── rolebinding.yaml
+    │  │  ├── project1
+    │  │  │  ├── dev
+    │  │  │  │  ├── apps
+    │  │  │  │  │  └── example-app.yaml
+    │  │  │  │  └── project
+    │  │  │  │      ├── limit-range.yaml
+    │  │  │  │      ├── namespace.yaml
+    │  │  │  │      ├── resource-quota.yaml
+    │  │  │  │      └── role-binding.yaml
+    │  │  │  └── test
+    │  │  │      ├── apps
+    │  │  │      │  └── example-app.yaml
+    │  │  │      └── project
+    │  │  │          └── namespace.yaml
+    │  │  └── project1-project.yaml
+    │  └── repositories
+    │      └── example-apps-repository.yaml
+    └── ocp03
     ```
 
     Por ejemplo el proyecto `project1` del cluster `ocp02` esta compuesto de 2 ambientes (`dev` y `test`) y contiene la aplicación `example-app`
