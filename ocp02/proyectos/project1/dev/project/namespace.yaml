@@ -3,6 +3,6 @@ items:
 - apiVersion: v1
   kind: Namespace
   metadata:
-    name: test-personal-service
+    name: dev-project1
 kind: List
 metadata: {}

@@ -3,6 +3,6 @@ kind: Kustomization
 bases:
   - ../../base
 images:
-  - name: personal-service-app-image
+  - name: example-app-image
     newName: image-registry.openshift-image-registry.svc:5000/openshift/devfile-sample-python-basic
     newTag: "latest"

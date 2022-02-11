@@ -3,16 +3,16 @@ items:
 - apiVersion: argoproj.io/v1alpha1
   kind: Application
   metadata:
-    name: dev-personal-service-app
+    name: test-example-app
     namespace: openshift-gitops
   spec:
     destination:
-      namespace: dev-personal-service
+      namespace: test-project1
       server: https://kubernetes.default.svc
-    project: dev-personal-service
+    project: test-project1
     source:
       path: overlay/dev
-      repoURL: git@github.com:damianlezcano/reprocann-gitops.git
+      repoURL: git@github.com:damianlezcano/example-gitops.git
       targetRevision: main
     syncPolicy:
       automated:

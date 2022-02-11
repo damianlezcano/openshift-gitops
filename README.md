@@ -15,6 +15,13 @@ oc create -f ocp02/core/apps-repository.yaml
 oc create -f ocp02/core/github-ssh-repo-creds.yaml
 ```
 
+## Registramos proyecto y aplicacion en argocd
+
+```sh
+oc create -f ocp02/core/openshift-gitops-project.yaml
+oc create -f ocp02/core/applications.yaml
+```
+
 # Registramos aplicacion de prueba
 
 ## Creamos la imagen para la aplicacion de prueba
@@ -32,9 +39,4 @@ Crear un repositorio en github y alojar el contenido de la carpeta `personal-ser
 oc create -f ocp02/repositories/personal-service-apps-repository.yaml
 ```
 
-## Registramos proyecto y aplicacion en argocd
 
-```sh
-oc create -f ocp02/core/openshift-gitops-project.yaml
-oc create -f ocp02/core/applications.yaml
-```

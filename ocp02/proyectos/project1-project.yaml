@@ -5,7 +5,7 @@ items:
   metadata:
     finalizers:
     - resources-finalizer.argocd.argoproj.io
-    name: personal-service
+    name: project1
   spec:
     clusterResourceWhitelist:
     - group: '*'
@@ -32,9 +32,9 @@ items:
     destinations:
     - namespace: openshift-gitops
       server: https://kubernetes.default.svc
-    - namespace: dev-personal-service
+    - namespace: dev-project1
       server: https://kubernetes.default.svc
-    - namespace: test-personal-service
+    - namespace: test-project1
       server: https://kubernetes.default.svc
     namespaceResourceBlacklist:
     - group: ""
@@ -44,15 +44,15 @@ items:
 - apiVersion: argoproj.io/v1alpha1
   kind: ApplicationSet
   metadata:
-    name: personal-service-set
+    name: project1-set
   spec:
     generators:
     - list:
         elements:
         - env: dev
-          project: personal-service
+          project: project1
         - env: test
-          project: personal-service
+          project: project1
     template:
       metadata:
         finalizers:
@@ -82,7 +82,7 @@ items:
   metadata:
     finalizers:
     - resources-finalizer.argocd.argoproj.io
-    name: dev-personal-service
+    name: dev-project1
   spec:
     clusterResourceWhitelist:
     - group: '*'
@@ -101,7 +101,7 @@ items:
       kind: ResourceQuota
     
     destinations:
-    - namespace: dev-personal-service
+    - namespace: dev-project1
       server: https://kubernetes.default.svc
     namespaceResourceBlacklist:
     - group: ""
@@ -113,7 +113,7 @@ items:
   metadata:
     finalizers:
     - resources-finalizer.argocd.argoproj.io
-    name: test-personal-service
+    name: test-project1
   spec:
     clusterResourceWhitelist:
     - group: '*'
@@ -132,7 +132,7 @@ items:
       kind: ResourceQuota
     
     destinations:
-    - namespace: test-personal-service
+    - namespace: test-project1
       server: https://kubernetes.default.svc
     namespaceResourceBlacklist:
     - group: ""

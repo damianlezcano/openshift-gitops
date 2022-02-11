@@ -1,6 +1,6 @@
 spring:
   application:
-    name: personal-service-app
+    name: example-app
 
 management:
   info.java.enabled: true

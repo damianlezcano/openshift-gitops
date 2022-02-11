@@ -2,6 +2,6 @@ resources:
   - deployment.yaml
 
 configMapGenerator:
-  - name: cm-personal-service-app
+  - name: cm-example-app
     files:
     - application.yaml
