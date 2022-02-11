@@ -1,1 +1,1 @@
-# personal-service-gitops
+# example-gitops
