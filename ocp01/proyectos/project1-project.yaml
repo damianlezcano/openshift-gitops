@@ -67,7 +67,7 @@ items:
         source:
           directory:
             recurse: true
-          path: ocp02/proyectos/{{project}}/{{env}}
+          path: ocp01/proyectos/{{project}}/{{env}}
           repoURL: git@github.com:damianlezcano/openshift-gitops.git
           targetRevision: main
         syncPolicy:
