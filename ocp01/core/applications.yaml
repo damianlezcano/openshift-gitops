@@ -8,8 +8,8 @@ spec:
     namespace: 'openshift-gitops'
     server: 'https://kubernetes.default.svc'
   source:
-    path: ocp02/proyectos
-    repoURL: 'git@github.com:damianlezcano/openshift-gitops.git'
+    path: ocp01/proyectos
+    repoURL: 'https://github.com/damianlezcano/openshift-gitops.git'
     targetRevision: main
   project: openshift-gitops
   syncPolicy:

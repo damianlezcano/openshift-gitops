@@ -5,7 +5,7 @@
 2. Hay que crear un `rbac` con los permisos para que `Openshift GitOps` pueda manipular los namespace.
 
 ```sh
-oc create -f ocp02/proyectos/openshift-gitops/rolebinding.yaml
+oc create -f ocp01/core/rolebinding.yaml
 ```
 
 # Paso 2 (Configuración)
@@ -13,15 +13,15 @@ oc create -f ocp02/proyectos/openshift-gitops/rolebinding.yaml
 1. Configuramos `Openshift GitOps` registrando repositorio `openshift-gitops` y secret con las credenciales de acceso al repo GIT
 
     ```sh
-    oc create -f ocp02/core/apps-repository.yaml
-    oc create -f ocp02/core/github-ssh-repo-creds.yaml
+    oc create -f ocp01/core/apps-repository.yaml
+    oc create -f ocp01/core/github-ssh-repo-creds.yaml
     ```
 
 2. Registramos proyecto y aplicación en `Openshift GitOps`
 
     ```sh
-    oc create -f ocp02/core/openshift-gitops-project.yaml
-    oc create -f ocp02/core/applications.yaml
+    oc create -f ocp01/core/openshift-gitops-project.yaml
+    oc create -f ocp01/core/applications.yaml
     ```
 
     _Esta aplicación es la encargada de monitorear las demás aplicaciónes_
@@ -45,7 +45,7 @@ oc create -f ocp02/proyectos/openshift-gitops/rolebinding.yaml
 3. Registramos el repositorio para acceder a la aplicación 'example-app'
 
     ```sh
-    oc create -f ocp02/repositories/example-apps-repository.yaml
+    oc create -f ocp01/repositories/example-apps-repository.yaml
     ```
 
 4. Creamos el directorio del proyecto
@@ -54,7 +54,7 @@ oc create -f ocp02/proyectos/openshift-gitops/rolebinding.yaml
 
     ```
     .
-    ├── ocp02
+    ├── ocp01
     │  ├── proyectos
     │  │  ├── openshift-gitops
     │  │  │  └── rolebinding.yaml
@@ -78,7 +78,7 @@ oc create -f ocp02/proyectos/openshift-gitops/rolebinding.yaml
     └── ocp03
     ```
 
-    Por ejemplo el proyecto `project1` del cluster `ocp02` esta compuesto de 2 ambientes (`dev` y `test`) y contiene la aplicación `example-app`
+    Por ejemplo el proyecto `project1` del cluster `ocp01` esta compuesto de 2 ambientes (`dev` y `test`) y contiene la aplicación `example-app`
 
     En el ambiente `dev` del projecto `project1` se declara la creación del `namespace` y configuración de `limits`, `quota`, `rolebinding`.
 
