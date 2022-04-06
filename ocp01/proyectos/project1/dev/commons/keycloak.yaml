@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: keycloak-operator
+  namespace: dev-proyect1
+spec:
+  channel: alpha
+  installPlanApproval: Automatic 
+  name: keycloak-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
