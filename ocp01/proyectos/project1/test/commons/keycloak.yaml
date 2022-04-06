@@ -1,11 +1,8 @@
-apiVersion: operators.coreos.com/v1alpha1
-kind: Subscription
+apiVersion: keycloak.org/v1alpha1
+kind: Keycloak
 metadata:
-  name: keycloak-operator
+  name: keycloak
 spec:
-  channel: alpha
-  installPlanApproval: Automatic
-  name: keycloak-operator
-  source: community-operators
-  sourceNamespace: openshift-marketplace
-  startingCSV: keycloak-operator.v17.0.1
+  externalAccess:
+    enabled: true
+  instances: 1

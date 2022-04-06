@@ -2,7 +2,6 @@ apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
   name: operatorgroup1
-  namespace: test-project1
 spec:
   targetNamespaces:
   - test-project1
