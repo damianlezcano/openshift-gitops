@@ -3,9 +3,9 @@ kind: Subscription
 metadata:
   name: rhsso-operator
 spec:
-  channel: alpha
-  installPlanApproval: Manual
+  channel: stable
+  installPlanApproval: Automatic
   name: rhsso-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: rhsso-operator.7.4.9
+  startingCSV: rhsso-operator.7.5.1-opr-010
