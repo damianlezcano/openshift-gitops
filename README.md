@@ -10,45 +10,37 @@ oc create -f ocp01/core/rolebinding.yaml
 
 # Paso 2 (Configuración)
 
-1. Configuramos `Openshift GitOps` registrando repositorio `openshift-gitops` y secret con las credenciales de acceso al repo GIT
+1. Configuramos `Openshift GitOps` registrando repositorio `openshift-gitops`
 
     ```sh
     oc create -f ocp01/core/apps-repository.yaml
-    oc create -f ocp01/core/github-ssh-repo-creds.yaml
     ```
+    
+2. [OPTIONAL] En caso de que sea necesario crear la llave SSH desde GitHub, seguir el siguiente tutorial: [Set up SSH key authentication](https://docs.github.com/es/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-2. Registramos proyecto y aplicación en `Openshift GitOps`
+3. Creamos un template de credenciales para todos los repositorios con la llave SSH generada en GitHub. Para ello se debe crear un nuevo repositorio y en vez de presionar [Conectar], se deben guardar las credenciales con [Save as Credentials Template].
+
+    ![Configurar SSH Key](images/openshift-gitops-ssh-credentials.png)
+
+    > Importante: Para que las credenciales tengan efecto en todos los repositorios que se agreguen, se debe crear el template con la ruta del repo hasta el nombre de la organización. Ej. **git@github.com:damianlezcano/**.
+
+4. Registramos proyecto y aplicación en `Openshift GitOps`
 
     ```sh
     oc create -f ocp01/core/openshift-gitops-project.yaml
     oc create -f ocp01/core/applications.yaml
     ```
-
     _Esta aplicación es la encargada de monitorear las demás aplicaciónes_
 
 # Paso 3 (Registramos aplicación de prueba)
 
-1. Creamos la imagen para la aplicación de prueba
-
-    ```sh
-    oc new-build openshift/python:3.8-ubi8~https://github.com/elsony/devfile-sample-python-basic.git -n openshift
-    ```
-
-    _Esto lo hacemos para contar con una imagen de nuestra aplicacion accesible desde cualquier namespace y evitar el proceso de s2i._
-
-2. Crear repo de manifiesto para la aplicación
+1. Crear repo de manifiesto para la aplicación
 
     Para esto hay que crear un repositorio en github y alojar el contenido de la carpeta `example-gitops`
 
     ![](images/example-gitops.png)
 
-3. Registramos el repositorio para acceder a la aplicación 'example-app'
-
-    ```sh
-    oc create -f ocp01/repositories/example-apps-repository.yaml
-    ```
-
-4. Creamos el directorio del proyecto
+2. Creamos el directorio del proyecto
 
     La información esta separada por `cluster` / `proyecto` / `aplicación`
 

@@ -12,7 +12,7 @@ items:
     project: dev-project1
     source:
       path: overlay/dev
-      repoURL: https://github.com/damianlezcano/example-gitops.git
+      repoURL: git@github.com:damianlezcano/example-gitops.git
       targetRevision: main
     syncPolicy:
       automated:
