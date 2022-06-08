@@ -70,13 +70,14 @@ items:
           path: ocp01/proyectos/{{project}}/{{env}}
           repoURL: git@github.com:damianlezcano/openshift-gitops.git
           targetRevision: main
-        syncPolicy:
-          automated:
-            selfHeal: true
-          syncOptions:
-          - Validate=false
-          - CreateNamespace=true
-          - ApplyOutOfSyncOnly=true
+        syncPolicy: {}
+#        syncPolicy:
+#          automated:
+#            selfHeal: true
+#          syncOptions:
+#          - Validate=false
+#          - CreateNamespace=true
+#          - ApplyOutOfSyncOnly=true
 - apiVersion: argoproj.io/v1alpha1
   kind: AppProject
   metadata:
