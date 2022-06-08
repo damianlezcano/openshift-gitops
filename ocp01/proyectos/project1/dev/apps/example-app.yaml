@@ -14,11 +14,12 @@ items:
       path: overlay/dev
       repoURL: git@github.com:damianlezcano/example-gitops.git
       targetRevision: main
-    syncPolicy:
-      automated:
-        selfHeal: true
-      syncOptions:
-      - Validate=false
-      - ApplyOutOfSyncOnly=true
+    syncPolicy: {}
+#    syncPolicy:
+#      automated:
+#        selfHeal: true
+#      syncOptions:
+#      - Validate=false
+#      - ApplyOutOfSyncOnly=true
 kind: List
 metadata: {}

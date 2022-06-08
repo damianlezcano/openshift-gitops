@@ -11,7 +11,7 @@ items:
       server: https://kubernetes.default.svc
     project: test-project1
     source:
-      path: overlay/dev
+      path: overlay/test
       repoURL: git@github.com:damianlezcano/example-gitops.git
       targetRevision: main
     syncPolicy:

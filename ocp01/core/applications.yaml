@@ -12,10 +12,11 @@ spec:
     repoURL: git@github.com:damianlezcano/openshift-gitops.git
     targetRevision: main
   project: openshift-gitops
-  syncPolicy:
-    automated:
-      selfHeal: true
-    syncOptions:
-      - Validate=false
-      - CreateNamespace=true
-      - ApplyOutOfSyncOnly=true
+  syncPolicy: {}
+#  syncPolicy:
+#    automated:
+#      selfHeal: true
+#    syncOptions:
+#      - Validate=false
+#      - CreateNamespace=true
+#      - ApplyOutOfSyncOnly=true
