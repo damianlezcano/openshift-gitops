@@ -13,7 +13,7 @@ items:
     source:
       path: overlay/dev
       repoURL: https://github.com/damianlezcano/book-import.git
-      targetRevision: main
+      targetRevision: master-no-pre-post
     syncPolicy: {}
 #    syncPolicy:
 #      automated:
