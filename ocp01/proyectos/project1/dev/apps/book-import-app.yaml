@@ -3,7 +3,7 @@ items:
 - apiVersion: argoproj.io/v1alpha1
   kind: Application
   metadata:
-    name: book-import-app.yaml
+    name: book-import-app
     namespace: openshift-gitops
   spec:
     destination:
