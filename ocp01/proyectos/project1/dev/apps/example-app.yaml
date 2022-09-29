@@ -12,8 +12,8 @@ items:
     project: dev-project1
     source:
       path: overlay/dev
-      repoURL: git@github.com:damianlezcano/example-gitops.git
-      targetRevision: main
+      repoURL: https://github.com/damianlezcano/openshift-gitops.git
+      targetRevision: https
     syncPolicy: {}
 #    syncPolicy:
 #      automated:
