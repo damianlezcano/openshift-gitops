@@ -12,14 +12,14 @@ items:
     project: dev-project1
     source:
       path: overlay/dev
-      repoURL: https://github.com/damianlezcano/example-gitops.git
+      repoURL: https://github.com/damianlezcano/book-import.git
       targetRevision: main
-    syncPolicy: {}
-#    syncPolicy:
-#      automated:
-#        selfHeal: true
-#      syncOptions:
-#      - Validate=false
-#      - ApplyOutOfSyncOnly=true
+    syncPolicy:
+      automated:
+        selfHeal: true
+      syncOptions:
+        - Validate=false
+        - CreateNamespace=true
+        - ApplyOutOfSyncOnly=true
 kind: List
 metadata: {}
