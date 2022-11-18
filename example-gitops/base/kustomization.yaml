@@ -1,7 +1,0 @@
-resources:
-  - deployment.yaml
-
-configMapGenerator:
-  - name: cm-example-app
-    files:
-    - application.yaml

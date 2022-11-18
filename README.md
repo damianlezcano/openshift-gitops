@@ -20,7 +20,7 @@ oc create -f ocp01/core/rolebinding.yaml
 
 3. Creamos un template de credenciales para todos los repositorios con la llave SSH generada en GitHub. Para ello se debe crear un nuevo repositorio y en vez de presionar [Conectar], se deben guardar las credenciales con [Save as Credentials Template].
 
-    ![Configurar SSH Key](images/openshift-gitops-ssh-credentials.png)
+    ![Configurar SSH Key](.images/openshift-gitops-ssh-credentials.png)
 
     > Importante: Para que las credenciales tengan efecto en todos los repositorios que se agreguen, se debe crear el template con la ruta del repo hasta el nombre de la organización. Ej. **git@github.com:damianlezcano/**.
 
@@ -38,7 +38,7 @@ oc create -f ocp01/core/rolebinding.yaml
 
     Para esto hay que crear un repositorio en github y alojar el contenido de la carpeta `example-gitops`
 
-    ![](images/example-gitops.png)
+    ![](.images/example-gitops.png)
 
 2. Creamos el directorio del proyecto
 
@@ -80,10 +80,10 @@ oc create -f ocp01/core/rolebinding.yaml
 
     Si todo esta bien configurado, deberias ver en la consola de `Openshift GitOps` lo siguiente:
 
-    ![](images/openshift-gitops-success1.png)
+    ![](.images/openshift-gitops-success1.png)
 
     Y en openshift que se crearon los `namespaces` con los objetos declarados en cada uno.
 
-    ![](images/openshift-gitops-success2.png)
+    ![](.images/openshift-gitops-success2.png)
 
     _**Prueba en borrar alguno de estos 2 namespaces! `Openshift GitOps` los va regenerar nuevamente en forma automática. Observa la consola de `Openshift GitOps` para ver el progreso...**_
